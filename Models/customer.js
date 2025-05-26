@@ -61,3 +61,20 @@ findCustomer()
 // }
 
 // addOrders()
+
+const addCust = async () => {
+    let newCust = new Customer({
+        name: "Kaalu",
+    })
+    let newOrder = new Order({
+        item: "Pizza",
+        price: 150,
+    })
+    newCust.orders.push(newOrder)
+    await newOrder.save()
+    await newCust.save()
+
+    console.log("Added new customer")
+}
+
+addCust()
